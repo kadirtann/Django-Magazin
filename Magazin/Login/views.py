@@ -36,15 +36,17 @@ def login(request):
             messages.error(request, 'Kullanıcı adı veya şifre yanlış!')
     return render(request, 'login/login.html')
 
-def register(request):
+def register_view(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         username = request.POST.get('username')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('confirm_password')
+        password = request.POST.get('password1')
+        confirm_password = request.POST.get('password2')  # Şifre tekrarı alanının adını kontrol edin
+
+    
         
         if password == confirm_password:
             if User.objects.filter(username=username).exists():
@@ -54,10 +56,15 @@ def register(request):
             else:
                 user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
                 user.save()
-                writer = Reader.objects.create(user=user, phone=phone)
-                writer.save()
+                # Örneğin Reader modelini kullanıyorsanız
+                reader = Reader.objects.create(user=user, phone=phone)
+                reader.save()
                 auth_login(request, user)
                 return redirect('login')  # Kayıt başarılıysa yönlendirilecek sayfa
         else:
             messages.error(request, 'Şifreler eşleşmiyor!')
+    
     return render(request, 'login/login.html')
+
+def base(request):
+    return render(request, 'main/base.html')
