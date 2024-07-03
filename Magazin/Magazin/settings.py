@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Login',
     'Reader',
     'Writer',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
