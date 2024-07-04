@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ana Sayfa{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Diğer CSS dosyalarını buraya ekleyebilirsiniz -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Ana Sayfa</a></li>
+                <!-- Diğer sayfa linklerini buraya ekleyebilirsiniz -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+        <!-- İçerik bloğu gelecek -->
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <!-- Footer içeriği -->
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Diğer JavaScript dosyalarını buraya ekleyebilirsiniz -->
+</body>
+</html>

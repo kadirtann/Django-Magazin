@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
-from .models import *
+from .models import Writer, Reader  # Import your models
 from django.contrib import messages
 from django.contrib.auth.models import User
 
@@ -46,19 +46,24 @@ def register_view(request):
         password = request.POST.get('password1')
         confirm_password = request.POST.get('password2')  # Şifre tekrarı alanının adını kontrol edin
 
-    
-        
         if password == confirm_password:
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'Kullanıcı adı zaten mevcut!')
             elif User.objects.filter(email=email).exists():
                 messages.error(request, 'Email zaten mevcut!')
             else:
-                user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
+                user = User.objects.create_user(username=username, email=email, password=password)
+                user.first_name = first_name  # first_name ve last_name'i ayrıca ayarla
+                user.last_name = last_name
                 user.save()
-                # Örneğin Reader modelini kullanıyorsanız
-                reader = Reader.objects.create(user=user, phone=phone)
-                reader.save()
+
+                if phone:  # phone alanı doluysa Reader nesnesini oluştur
+                    reader = Reader.objects.create(user=user, phone=phone)
+                    reader.save()
+                else:  # Aksi halde Writer nesnesini oluştur
+                    writer = Writer.objects.create(user=user)
+                    writer.save()
+
                 auth_login(request, user)
                 return redirect('login')  # Kayıt başarılıysa yönlendirilecek sayfa
         else:
