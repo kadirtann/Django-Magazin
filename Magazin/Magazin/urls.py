@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Reader.urls')),  # Root URL handled by Reader app
+    path('', include('Reader.urls')),  
     path('login/', include('Login.urls')),
     path('writer/', include('Writer.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
