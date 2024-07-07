@@ -1,9 +1,9 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
-from .models import Writer, Reader  # Import your models
+from .models import *
 from django.contrib import messages
 from django.contrib.auth.models import User
+from .models import Writer, Reader
 
 def login(request):
     if request.method == 'POST':
@@ -24,17 +24,18 @@ def login(request):
             try:
                 writer = Writer.objects.get(user=user)
                 auth_login(request, user)
-                return HttpResponse(f'<h1>{writer.user.first_name} {writer.user.last_name}</h1>')
+                return redirect('index')
             except Writer.DoesNotExist:
                 try: 
                     reader = Reader.objects.get(user=user)
                     auth_login(request, user)
-                    return HttpResponse(f'<h1>{reader.user.first_name} {reader.user.last_name}</h1>')
+                    return redirect('index')
                 except Reader.DoesNotExist:
                     messages.error(request, 'Kullanıcı mevcut ancak Okur veya Yazar değil.')
         else:
             messages.error(request, 'Kullanıcı adı veya şifre yanlış!')
     return render(request, 'login/login.html')
+
 
 def register_view(request):
     if request.method == 'POST':
@@ -44,28 +45,20 @@ def register_view(request):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         password = request.POST.get('password1')
-        confirm_password = request.POST.get('password2')  # Şifre tekrarı alanının adını kontrol edin
-
+        confirm_password = request.POST.get('password2')
+    
         if password == confirm_password:
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'Kullanıcı adı zaten mevcut!')
             elif User.objects.filter(email=email).exists():
                 messages.error(request, 'Email zaten mevcut!')
             else:
-                user = User.objects.create_user(username=username, email=email, password=password)
-                user.first_name = first_name  # first_name ve last_name'i ayrıca ayarla
-                user.last_name = last_name
+                user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
                 user.save()
-
-                if phone:  # phone alanı doluysa Reader nesnesini oluştur
-                    reader = Reader.objects.create(user=user, phone=phone)
-                    reader.save()
-                else:  # Aksi halde Writer nesnesini oluştur
-                    writer = Writer.objects.create(user=user)
-                    writer.save()
-
+                reader = Reader.objects.create(user=user, phone=phone)
+                reader.save()
                 auth_login(request, user)
-                return redirect('login')  # Kayıt başarılıysa yönlendirilecek sayfa
+                return redirect('index')
         else:
             messages.error(request, 'Şifreler eşleşmiyor!')
     
@@ -73,3 +66,6 @@ def register_view(request):
 
 def base(request):
     return render(request, 'main/base.html')
+
+def index(request):
+    return render(request, 'main/index.html')
