@@ -60,7 +60,7 @@ def register_view(request):
                 reader = Reader.objects.create(user=user, phone=phone)
                 reader.save()
                 auth_login(request, user)
-                return redirect('login')  # Kayıt başarılıysa yönlendirilecek sayfa
+                return redirect('Main/base')  # Kayıt başarılıysa yönlendirilecek sayfa
         else:
             messages.error(request, 'Şifreler eşleşmiyor!')
     
