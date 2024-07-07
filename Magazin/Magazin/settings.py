@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Writer',
     'ckeditor',
     'Dashboard',
+    'Main',
 ]
 
 MIDDLEWARE = [

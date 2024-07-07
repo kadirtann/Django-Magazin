@@ -9,4 +9,5 @@ urlpatterns = [
     path('login/', include('Login.urls')),
     path('writer/', include('Writer.urls')),
     path('dashboard/', include('Dashboard.urls')),
+    path('',include('Main.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
