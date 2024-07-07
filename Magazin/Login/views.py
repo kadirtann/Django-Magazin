@@ -12,7 +12,7 @@ def login(request):
         
         if not login_info or not password:
             messages.error(request, 'Kullanıcı adı ve şifre gereklidir.')
-            return render(request, 'login/login.html')
+            return render(request, 'main/base.html')
         
         try:
             user_mail = User.objects.get(email=login_info)
@@ -60,7 +60,7 @@ def register_view(request):
                 reader = Reader.objects.create(user=user, phone=phone)
                 reader.save()
                 auth_login(request, user)
-                return redirect('Main/base')  # Kayıt başarılıysa yönlendirilecek sayfa
+                return redirect('login')  # Kayıt başarılıysa yönlendirilecek sayfa
         else:
             messages.error(request, 'Şifreler eşleşmiyor!')
     

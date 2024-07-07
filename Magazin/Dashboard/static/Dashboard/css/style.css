@@ -10,12 +10,12 @@
 }
 
 :root {
-    --primary-clr: #ff7550;
-    --bg-primary: #1f1d2a;
-    --bg-secondary: #252935;
-    --bg-ternary: #35333f;
-    --heading-clr: #efefef;
-    --text-clr: #808191;
+    --primary-clr: #004070;
+    --bg-primary: #026874;
+    --bg-secondary: #002D40;
+    --bg-ternary: #011C27;
+    --heading-clr: #D2D7DA;
+    --text-clr: #EBF0F3;
     --gradient: linear-gradient(to right, #35333f, transparent);
 }
 
@@ -484,6 +484,80 @@ p {
     color: #666;
 }
 
+/* Kendini tanıtma Başlangıç */
+.kendini-tanitma {
+    max-width: 950px;
+    margin: auto;
+    margin-top: 25px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.author-bio-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.author-thumbnail {
+    position: relative;
+    margin-right: 20px;
+}
+
+.author-thumbnail img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.author-thumbnail input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.author-body {
+    flex: 1;
+}
+
+.subtitle {
+    display: block;
+    font-size: 14px;
+    color: #666;
+}
+
+.title {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.author-inner-text {
+    font-size: 16px;
+    color: #333;
+}
+
+.social-share-author {
+    margin-top: 10px;
+}
+
+.social-share-author a {
+    margin-right: 10px;
+    color: #555;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.social-share-author a:hover {
+    color: #000;
+}
+
+/* Kendini tanıtma Bitiş */
 /* Descriptions Bitiş */
 /* butonlar başlangıç */
 .dashboard {
