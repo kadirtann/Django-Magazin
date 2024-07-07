@@ -1,5 +1,11 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django_ckeditor_5.fields import CKEditor5Field
+
+
+class Article(models.Model):
+    title=models.CharField('Title', max_length=200)
+    text=CKEditor5Field('Text', config_name='extends')
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
