@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from Login.models import * 
 
+
 # Create your views here.
 def writerdashboard(request, slug):
     writer = Writer.objects.get(slug = slug)
