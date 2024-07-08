@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html class="no-js" lang="en">
     <head>
         <!-- Meta Data -->
@@ -13,13 +14,13 @@
         <link rel="shortcut icon" type="image/x-icon"
             href="assets/media/favicon.png">
         <!-- Vendors CSS -->
-        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
-        <link rel="stylesheet" href="assets/css/vendor/icon-font.css">
-        <link rel="stylesheet" href="assets/css/vendor/remixicon.css">
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/font-awesome.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/icon-font.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/remixicon.css' %}" />
         <!-- Site Stylesheet -->
-        <link rel="stylesheet" href="assets/css/app.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="{% static 'assets/css/app.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
     </head>
     <body>
         <!-- Site Preloader -->
@@ -950,13 +951,13 @@
         <script src="https://kit.fontawesome.com/767955e4cb.js"
             crossorigin="anonymous"></script>
         <!-- Jquery JS -->
-        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="{% static 'assets/js/vendor/jquery-3.6.0.min.js' %}"></script>
         <!-- Vendors JS -->
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-        <script src="assets/js/vendor/imagesloaded.pkgd.min.js"></script>
-        <script src="assets/js/vendor/odometer.min.js"></script>
-        <script src="assets/js/vendor/jquery-appear.js"></script>
+        <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/odometer.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/jquery-appear.js' %}"></script>
         <!-- Main JS -->
-        <script src="assets/js/app.js"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
     </body>
 </html>

@@ -10,4 +10,8 @@ urlpatterns = [
     path('writer/', include('Writer.urls')),
     path('dashboard/', include('Dashboard.urls')),
     path('',include('Main.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
