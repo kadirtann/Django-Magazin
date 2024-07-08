@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="{% static 'Dashboard/css/style.css' %}" />
   </head>
   <body>
-    <!-- ? Wrapper Başlangıç -->
+    <!-- Wrapper Başlangıç -->
     <div class="page-wrapper">
-      <!-- ! Side Bar Başlangıç -->
+      <!-- Side Bar Başlangıç -->
       <aside class="side-bar">
-        <!-- ! Navbar Links Başlangıç -->
+        <!-- Navbar Links Başlangıç -->
         <span class="menu-label">MENÜ</span>
         <ul class="navbar-links navbar-links-1">
           <li>
@@ -64,7 +64,7 @@
             </a>
           </li>
         </ul>
-        <!-- ! Navbar Links Bitiş -->
+        <!-- Navbar Links Bitiş -->
         <span class="line"></span>
         <span class="menu-label">TERCİHLER</span>
         <ul class="navbar-links navbar-links-2">
@@ -81,7 +81,7 @@
             </a>
           </li>
         </ul>
-        <!-- ! Side Bar Footer -->
+        <!-- Side Bar Footer -->
         <div class="sidebar-footer">
           <div class="settings">
             <span class="gear-icon"><i class="fa-solid fa-gear"></i></span>
@@ -93,36 +93,20 @@
           </div>
         </div>
       </aside>
-      <!-- ! Side Bar Bitiş -->
-      <!-- Content Sectiond Başlangıç -->
-      <div class="contents">
+      <!-- Side Bar Bitiş -->
+      <!-- Content Section Başlangıç -->
+      <div class="contents" id="contents">
         <!-- Yazar Kendini Tanıtma -->
-        <div class="kendini-tanitma">
-          <div class="author-bio-wrap">
-            <div class="author-thumbnail">
-              <img id="author-image" src="assets/media/model.jpg" alt="Author" />
-              <input type="file" id="image-upload" accept="image/*" onchange="previewImage(event)" />
-            </div>
-            <div class="author-body">
-              <span class="subtitle">Sr. UX Designer</span>
-              <h5 class="title">Kristin Watson</h5>
-              <p class="author-inner-text">My favorite compliment is being told that I look like my mom. Seeing myself in her image, like this daughter up top, makes me so proud of how far I’ve come.</p>
-              <div class="social-share-author">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% include 'partials/kendini-tanit.html' %}
 
         <!-- Description Başlangıç -->
         <div class="description">
           <!-- Column 1 Başlangıç -->
           <div class="col-1">
-            <!-- === Kutular Başlangıç === -->
+            <!-- Kutular Başlangıç -->
             <div class="boxes-row">
               <div class="balance-box">
-                <di v class="subject-row">
+                <div class="subject-row">
                   <div class="text">
                     <h3>Toplam Görüntülenme:</h3>
                     <h1>40.456 <sub>Gör.</sub></h1>
@@ -130,7 +114,7 @@
                   <div class="icon">
                     <i class="fa-solid fa-arrow-up"></i>
                   </div>
-                </di>
+                </div>
                 <div class="progress-row">
                   <div class="subject">Progress</div>
                   <div class="progress-bar">
@@ -139,7 +123,7 @@
                 </div>
               </div>
               <div class="balance-box">
-                <di v class="subject-row">
+                <div class="subject-row">
                   <div class="text">
                     <h3>Toplam Beğeni:</h3>
                     <h1>22.456 <sub>Beğeni</sub></h1>
@@ -147,7 +131,7 @@
                   <div class="icon">
                     <i class="fa-solid fa-arrow-down"></i>
                   </div>
-                </di>
+                </div>
                 <div class="progress-row">
                   <div class="subject">Progress</div>
                   <div class="progress-bar">
@@ -156,8 +140,8 @@
                 </div>
               </div>
             </div>
-            <!-- === Kutular Bitiş === -->
-            <!-- Buttonlar Başlanguç -->
+            <!-- Kutular Bitiş -->
+            <!-- Buttonlar Başlangıç -->
             <div class="dashboard">
               <h1>Düzenleme</h1>
               <div class="buttons-container">
@@ -165,7 +149,7 @@
                 <a href="#" class="button edit-button"><i class="fas fa-edit"></i> Postu Düzenle</a>
               </div>
             </div>
-            <!-- Buttonlar Başlanguç -->
+            <!-- Buttonlar Bitiş -->
           </div>
           <!-- Column 1 Bitiş -->
         </div>
@@ -206,11 +190,10 @@
           <a href="#" class="view-all-notifications">Tüm Bildirimleri Gör</a>
         </div>
       </div>
-
-      <!-- Content Sectiond Bitiş -->
+      <!-- Content Section Bitiş -->
     </div>
-    <!-- ? Wrapper Bitiş -->
-
+    <!-- Wrapper Bitiş -->
+    <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/767955e4cb.js" crossorigin="anonymous"></script>
     <script src="{% static 'Dashboard/js/script.js' %}"></script>
   </body>

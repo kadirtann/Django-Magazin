@@ -36,7 +36,7 @@ class Reader(models.Model):
         super().save(*args, **kwargs)
 
 class Writer(models.Model):
-    user = models.ForeignKey(User, verbose_name="Kullanıcı", on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(User, verbose_name="Kullanıcı", on_delete=models.SET_NULL, null=True, related_name= 'writers')
     phone = models.CharField(max_length=20, null=True, blank=True)
     is_darkmode = models.BooleanField(verbose_name="Dark Mode", default=False)
     is_delete = models.BooleanField(verbose_name="Silindi", default=False)
@@ -44,6 +44,7 @@ class Writer(models.Model):
     created_date = models.DateTimeField(verbose_name="Oluşturma Tarihi", auto_now_add=True)
     updated_date = models.DateTimeField(verbose_name="Son Güncelleme Tarihi", auto_now=True)
     slug = models.SlugField(verbose_name="Url", unique=True, editable=False)
+    bio = models.TextField(verbose_name=("Biyografi"), blank=True, null=True)
 
     def __str__(self):
         if self.user.first_name and self.user.last_name:

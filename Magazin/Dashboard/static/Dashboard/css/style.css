@@ -487,6 +487,7 @@ p {
 /* Kendini tanıtma Başlangıç */
 .kendini-tanitma {
     max-width: 950px;
+    height: 238px;
     margin: auto;
     margin-top: 25px;
     background: #fff;
@@ -497,7 +498,7 @@ p {
 
 .author-bio-wrap {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .author-thumbnail {
@@ -524,6 +525,26 @@ p {
 
 .author-body {
     flex: 1;
+    position: relative;
+}
+
+.edit-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.author-thumbnail .edit-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    border: 1px solid #ddd;
 }
 
 .subtitle {
@@ -543,6 +564,14 @@ p {
 }
 
 .social-share-author {
+    position: absolute;
+    bottom: -85px;
+    margin-top: 10px;
+}
+
+.social-share-author-2 {
+    position: absolute;
+    bottom: -40px;
     margin-top: 10px;
 }
 
@@ -555,6 +584,16 @@ p {
 
 .social-share-author a:hover {
     color: #000;
+}
+
+.subtitle-input,
+.title-input,
+.bio-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 /* Kendini tanıtma Bitiş */
