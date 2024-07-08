@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ana Sayfa{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <script src="{% static 'js/vendor/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+
+    <!-- Diğer CSS dosyalarını buraya ekleyebilirsiniz -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Ana Sayfa</a></li>
+                <!-- Diğer sayfa linklerini buraya ekleyebilirsiniz -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+        <!-- İçerik bloğu gelecek -->
+        
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <!-- Footer içeriği -->
+    </footer>
+
+    <script src="{% static 'js/app.js' %}"></script>
+    <!-- Diğer JavaScript dosyalarını buraya ekleyebilirsiniz -->
+</body>
+</html>
